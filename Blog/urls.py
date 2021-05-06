@@ -14,27 +14,31 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path , include
 from createaccount import views as c
 from myBlog import views as m
 from django.contrib.auth import views as auth_views
 
-
 urlpatterns = [
-    path('admin/' , admin.site.urls),
+    path ( 'admin/' , admin.site.urls ) ,
+    path ( '' , m.IndexView.as_view () , name='home' ) ,
+    path ( 'createaccount/' , c.createaccount , name='create' ) ,
 
-    path('', m.IndexView.as_view(), name ='home'),
-    path('createaccount/', c.createaccount, name='create'),
+    path ( '' , include ( 'django.contrib.auth.urls' ) ) ,
 
-    path('',include('django.contrib.auth.urls')),
+    path ( 'reset_password/' , auth_views.PasswordResetView.as_view ( template_name='myBlog/password_reset.html' ) ,
+           name='reset_password' ) ,
+    path ( 'reset_password_sent/' ,
+           auth_views.PasswordResetDoneView.as_view ( template_name='myBlog/password_reset_sent.html' ) ,
+           name='password_reset_done' ) ,
+    path ( 'reset/<uidb64>/<token>/' ,
+           auth_views.PasswordResetConfirmView.as_view ( template_name='myBlog/password_update.html' ) ,
+           name='password_reset_confirm' ) ,
+    path ( 'reset_password_complete/' ,
+           auth_views.PasswordResetCompleteView.as_view ( template_name='myBlog/password_reset_done.html' ) ,
+           name='password_reset_complete' ) ,
 
-    path('reset_password/', auth_views.PasswordResetView.as_view(template_name = 'myBlog/password_reset.html'),
-         name = 'reset_password'),
-    path ( 'reset_password_sent/' , auth_views.PasswordResetDoneView.as_view (template_name = 'myBlog/password_reset_sent.html'),
-           name = 'password_reset_done' ) ,
-    path ( 'reset/<uidb64>/<token>/' , auth_views.PasswordResetConfirmView.as_view (template_name = 'myBlog/password_update.html'),
-           name = 'password_reset_confirm' ) ,
-    path ( 'reset_password_complete/' , auth_views.PasswordResetCompleteView.as_view (template_name = 'myBlog/password_reset_done.html'),
-           name = 'password_reset_complete' ) ,
+    path ( '<slug:slug>/' , m.post_detail, name='post_detail' ) ,
+    path ( 'post_detail/' , m.post_detail, name='post_detail' ),
 
 ]

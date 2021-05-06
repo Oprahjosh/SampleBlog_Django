@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i43bhw116y7744-_=0n89nbgtcjk@6mn31*o5u3llazw9mg13&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://djangoo-blog.herokuapp.com','127.0.0.1']
 
 # Application definition
 
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -116,6 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
 # Default primary key field type
@@ -127,7 +131,7 @@ CRISPY_TEMPLATE_PACK = 'Bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
 
-LOGOUT_REDIRECT_URL = '/login'
+LOGOUT_REDIRECT_URL = '/logout'
 
 #SMTP Configuration
 
