@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'myBlog.apps.MyblogConfig',
     'createaccount.apps.CreateaccountConfig',
+    'secvot',
 
 
 ]
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'Blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR,'secvot', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
