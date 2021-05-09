@@ -24,7 +24,7 @@ urlpatterns = [
     
    
     
-    path ( '' , m.IndexView.as_view () , name='home' ) ,
+    path ( '/' , m.IndexView.as_view () , name='home' ) ,
     path ( 'createaccount/' , c.createaccount , name='create' ) , 
     
      path ( '' , include ( 'django.contrib.auth.urls' ) ) ,
