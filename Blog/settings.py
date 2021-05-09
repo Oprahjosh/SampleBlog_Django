@@ -130,7 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap', 'uni_form', 'bootstrap3', 'foundation-5')
 
-REGISTER_REDIRECT_URL = '/'
+REGISTRATION_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = '/'
 
