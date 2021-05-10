@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i43bhw116y7744-_=0n89nbgtcjk@6mn31*o5u3llazw9mg13&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['djangoo-blog.herokuapp.com','127.0.0.1']
 
@@ -126,7 +126,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_TEMPLATE_PACK = 'Bootstrap4'
+#CRISPY_TEMPLATE_PACK = 'Bootstrap4'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap', 'uni_form', 'bootstrap3', 'foundation-5')
+
+REGISTRATION_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = '/'
 

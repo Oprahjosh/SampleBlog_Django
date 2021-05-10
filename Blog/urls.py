@@ -41,7 +41,7 @@ urlpatterns = [
            auth_views.PasswordResetCompleteView.as_view ( template_name='myBlog/password_reset_done.html' ) ,
            name='password_reset_complete' ) ,
 
-    path ( '<slug:slug>/' , m.post_detail, name='post_detail' ) ,
+    #path ( '<slug:slug>/' , m.post_detail, name='post_detail' ) ,
     path ( 'post_detail/' , m.post_detail, name='post_detail' ),
 
 ]
