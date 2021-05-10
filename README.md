@@ -1,5 +1,6 @@
 # SampleBlog_Django
-Created a test blog with Django!
+A simple blog with Django!
 The project is a blog written with Django framework ! 
 App is hosted on Heroku and can be viewed with the following link https://djangoo-blog.herokuapp.com/
-The App is a blog project that allows user registration and user management via the in-built user authentication modules.
+The App allows user registration,login,logout,comment only for registered users and password management.
+The master branch in this repo is the functional branch to be used.
