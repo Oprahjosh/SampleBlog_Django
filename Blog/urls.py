@@ -27,7 +27,9 @@ urlpatterns = [
     path ( '' , m.IndexView.as_view () , name='home' ) ,
     path ( 'createaccount/' , c.createaccount , name='create' ) , 
     
-     path ( '' , include ( 'django.contrib.auth.urls' ) ) ,
+    path('',include("createaccount.urls")),
+
+    path ( 'createaccount/' , include ( 'django.contrib.auth.urls' ) ) ,
 
     path ( 'reset_password/' , auth_views.PasswordResetView.as_view ( template_name='myBlog/password_reset.html' ) ,
            name='reset_password' ) ,
