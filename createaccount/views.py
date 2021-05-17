@@ -12,3 +12,4 @@ def createaccount(response):
     else:
         form = RegisterForm
     return render ( response , 'register/register.html' , {'form': form} )
+    return render(request,'registration/register.html',context)
